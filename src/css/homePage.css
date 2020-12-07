@@ -1,0 +1,21 @@
+.LoginBox {
+    margin-left: 10px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    height: 350px;
+    width: 290px;
+    position: 'absolute';
+    left: '50%';
+    border-radius: 5px;
+    margin: auto;
+  }
+
+.centerAlign {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.FormTitle {
+    font-size: 22px;
+}
