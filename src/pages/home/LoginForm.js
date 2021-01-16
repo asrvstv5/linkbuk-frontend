@@ -19,6 +19,7 @@ function LoginForm (props) {
     
     const responseErrorGoogle = (response) => {
         console.log("Login Error");
+        console.log("response is ", response);
         return (
             <div>Login Error</div>
         )
