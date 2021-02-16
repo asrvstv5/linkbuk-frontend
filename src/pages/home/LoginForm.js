@@ -3,13 +3,14 @@ import axios from 'axios';
 import { GoogleLogin } from 'react-google-login';
 import { storeUser } from '../../redux/User/actions';
 import { connect } from 'react-redux';
- 
+import { LINKBUK_API_BASE_URL } from './../../config/baseUrl';
+
 function LoginForm (props) {
 
     const responseSuccessGoogle = (response) => {
         axios({
             method: "POST",
-            url: "http://localhost:3001/api/googlelogin",
+            url: LINKBUK_API_BASE_URL + "/api/googlelogin",
             data:{ tokenId: response.tokenId }
         }).then(async (response) => {
             await props.storeUser(response.data);

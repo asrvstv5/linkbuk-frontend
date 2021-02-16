@@ -1,0 +1,1 @@
+export const LINKBUK_API_BASE_URL = "http://ec2-18-217-7-175.us-east-2.compute.amazonaws.com/api"

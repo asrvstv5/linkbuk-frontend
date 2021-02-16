@@ -4,6 +4,7 @@ import LinkForm from './LinkForm.js'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import { LINKBUK_API_BASE_URL } from './../../config/baseUrl';
 
 
 export default class LinkBox extends React.Component {
@@ -26,7 +27,7 @@ export default class LinkBox extends React.Component {
         }
         console.log("Deleting item...............")
         console.log("Deleting Url ", item);
-        await fetch('http://localhost:3001/deleteUrl', {
+        await fetch(LINKBUK_API_BASE_URL+'/deleteUrl', {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -40,7 +41,7 @@ export default class LinkBox extends React.Component {
     } 
 
     async getAllUrls(){
-        fetch('http://localhost:3001/showAllUrls?projectId='+this.props.projectId, {
+        fetch(LINKBUK_API_BASE_URL+'/showAllUrls?projectId='+this.props.projectId, {
             method: 'GET',
             headers: {
                'token': this.props.token, 
@@ -69,7 +70,7 @@ export default class LinkBox extends React.Component {
             "type": "url"
         }
         console.log("Adding Urls");
-        await axios.post('http://localhost:3001/addUrl', jsonobj, config)
+        await axios.post(LINKBUK_API_BASE_URL+'/addUrl', jsonobj, config)
             .then(response => {
                 console.log(response);
             }).catch(error => {

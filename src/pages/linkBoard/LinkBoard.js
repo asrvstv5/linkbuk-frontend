@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Tile from './Tile.js'
 import TileForm from './TileForm';
 import axios from 'axios';
+import { LINKBUK_API_BASE_URL } from './../../config/baseUrl';
 
 const LinkBoardBody = (props) => {
     const tiles = props.TileArray.map((tile, index) => {
@@ -36,7 +37,7 @@ export default class LinkBoard extends React.Component {
         var item = {
             "_id": itemID, "projectName": projectName,
         }
-        await fetch('http://localhost:3001/deleteProject', {
+        await fetch(LINKBUK_API_BASE_URL+'/deleteProject', {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -49,7 +50,7 @@ export default class LinkBoard extends React.Component {
     } 
 
     async getAllTiles(){
-        await fetch('http://localhost:3001/showAllProjects', {
+        await fetch(LINKBUK_API_BASE_URL+'/showAllProjects', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -79,7 +80,7 @@ export default class LinkBoard extends React.Component {
             "detailed_description": project.detailed_description,            
             "type": "project"
         }
-        axios.post('http://localhost:3001/addProject', jsonobj, config)
+        axios.post(LINKBUK_API_BASE_URL+'/addProject', jsonobj, config)
             .catch(error => {
                 console.log(error);
             })
