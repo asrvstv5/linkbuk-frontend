@@ -25,14 +25,13 @@ function LoginForm (props) {
             <div>Login Error</div>
         )
     }
-    
+    // <div className="FormTitle"><h3>Login</h3></div><br />
     return (
         <div className="LoginBox"><br />
-            <div className="FormTitle"><h3>Login</h3></div><br />
-            <div className="LoginButton">
+            <div class="g-signin2" data-width="600" data-height="200" data-longtitle="true" >
                 <GoogleLogin
                     clientId="911491505806-m0be9rfams9moafgbgsdm4811s3u5966.apps.googleusercontent.com"
-                    buttonText="Login with Google"
+                    buttonText="Sign in with Google"
                     onSuccess={responseSuccessGoogle}
                     onFailure={responseErrorGoogle}
                     cookiePolicy={'single_host_origin'}

@@ -2,6 +2,7 @@ import React from 'react';
 import LoginForm from './LoginForm';
 import TopNavBar from './../../components/navBar';
 import { connect } from 'react-redux';
+import logo from './../../media/logo.png';
 
 function HomePage(props) {
         if(props.name && props.token && props.email){
@@ -13,8 +14,12 @@ function HomePage(props) {
                 <div className="NavBar">
                     <TopNavBar page='home'/>
                 </div>
-                <div className="LoginForm centerAlign">
-                    <div><LoginForm/></div>
+                <div className="centerAlign">
+                    <div className="LoginForm">
+                        <img src={logo} alt=""/>
+                        <hr/>
+                        <div><LoginForm/></div>
+                    </div>
                 </div>
             </div>
         );

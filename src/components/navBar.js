@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import logo from './../media/logo.svg';
+import './../css/index.css';
 
 function TopNavbar (props){
 
@@ -28,7 +29,7 @@ function TopNavbar (props){
 
         return (
             <div>
-                <Navbar bg="dark" variant="dark">
+                <Navbar className="nav-color" variant="dark">
                     <Navbar.Brand href="#home">
                     <img
                         alt=""
@@ -37,7 +38,7 @@ function TopNavbar (props){
                         height="35"
                         className="d-inline-block align-top"
                     />
-                    {' Aplink'}
+                    {' Linkbuk'}
                     </Navbar.Brand>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">

@@ -5,7 +5,30 @@ import Button from 'react-bootstrap/Button';
 import Tile from './Tile.js'
 import TileForm from './TileForm';
 import axios from 'axios';
+import Modal from 'react-bootstrap/Modal';
 import { LINKBUK_API_BASE_URL } from './../../config/baseUrl';
+
+const confirmationBox = (props) => {
+    return (
+        <div>
+            <Modal size="sm" onHide={() => props.onHide()}>
+                <Modal.Header closeButton>
+                <Modal.Title>{this.props.projectName} {'Are you sure you want to delete this Project'} </Modal.Title>
+                </Modal.Header>
+                <Modal.Footer>
+                {this.state.showAddButton? (
+                <Button variant="secondary" onClick={()=>this.props.onHide()}>
+                    No
+                </Button>):(null)}
+                {this.state.showAddButton? (
+                <Button variant="primary" onClick={ ()=>{this.handleAddHide(); this.handleEntry();} }>
+                    Yes
+                </Button>): (null)}
+                </Modal.Footer>
+            </Modal>
+        </div>
+    );
+}
 
 const LinkBoardBody = (props) => {
     const tiles = props.TileArray.map((tile, index) => {
@@ -94,7 +117,8 @@ export default class LinkBoard extends React.Component {
         this.addProject(project)
     }
 
-    removeProject = (itemID, projectName) => {    
+    removeProject = (itemID, projectName) => {
+        // Modal for are you sure?     
         this.deleteProject(itemID, projectName)
             .then(()=>this.getAllTiles());
     }
@@ -115,7 +139,7 @@ export default class LinkBoard extends React.Component {
         return (
             <>
             <div className="button-move">
-                <Button variant="primary" onClick={this.handleShow}>
+                <Button variant="success" onClick={this.handleShow}>
                 +
                 </Button>
                 <TileForm show={this.state.showForm} onHide={() => this.handleClose()} handleSubmit={this.handleSubmit}/>
