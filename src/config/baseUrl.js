@@ -1,1 +1,1 @@
-export const LINKBUK_API_BASE_URL = "https://www.link-buk.com/api"
+export const LINKBUK_API_BASE_URL = "https://link-buk.com/api"
